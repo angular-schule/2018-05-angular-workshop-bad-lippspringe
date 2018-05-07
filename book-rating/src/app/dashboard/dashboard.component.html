@@ -1,7 +1,7 @@
 <p>
-  <ng-container *ngFor="let b of books; index as i">
-    {{ i + 1 }}.
-
-    <br-book [book]="b"></br-book>
-  </ng-container>
+  <br-book
+    *ngFor="let b of books; index as i"
+    [book]="b">
+  </br-book>
 </p>
+
