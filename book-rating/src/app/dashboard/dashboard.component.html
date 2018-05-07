@@ -1,5 +1,7 @@
 <p>
-  <span *ngFor="let b of books; index as i">
-    {{ i + 1 }}. {{ b.title }}
-  </span>
+  <ng-container *ngFor="let b of books; index as i">
+    {{ i + 1 }}.
+
+    <br-book [book]="b"></br-book>
+  </ng-container>
 </p>
