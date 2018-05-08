@@ -8,19 +8,10 @@ export class BookRatingService {
   private maxRating = 5;
 
   rateUp(book: Book): Book {
-
-    let newBook = {
-      isbn: book.isbn,
-      title: book.title,
-      description: book.description,
-      rating: book.rating
+    return {
+      ...book,
+      rating: Math.min(this.maxRating, book.rating + 1)
     };
-
-    if (newBook.rating < 5) {
-      newBook.rating++;
-    }
-
-    return newBook;
   }
 
   rateDown(book: Book): Book {
