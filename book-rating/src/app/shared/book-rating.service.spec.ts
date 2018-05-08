@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { BookRatingService } from './book-rating.service';
 
-fdescribe('BookRatingService', () => {
+describe('BookRatingService', () => {
 
   let rs: BookRatingService;
   let book;
