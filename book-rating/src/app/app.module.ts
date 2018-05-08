@@ -1,3 +1,4 @@
+import { BookRatingService } from './shared/book-rating.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +20,9 @@ import { BookComponent } from './book/book.component';
     AppRoutingModule
     // TODO: FormsModule
   ],
-  providers: [],
+  providers: [
+    BookRatingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
