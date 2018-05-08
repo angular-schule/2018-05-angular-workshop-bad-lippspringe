@@ -1,3 +1,4 @@
+import { BookRatingService } from './../shared/book-rating.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../shared/book';
 
@@ -6,15 +7,17 @@ import { Book } from '../shared/book';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit {
+export class BookComponent {
 
   @Input() book: Book;
 
-  testDate = new Date('2018-05-07');
+  constructor(public rs: BookRatingService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  rateUp() {
+    this.book = this.rs.rateUp(this.book);
   }
 
+  rateDown() {
+    this.book = this.rs.rateDown(this.book);
+  }
 }

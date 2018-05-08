@@ -15,9 +15,15 @@
       {{ book.description }}
     </p>
 
-    <!-- worst practice! -->
-    <button (click)="book.rating = book.rating - 1" class="mr-2 btn btn-secondary">-1</button>
-    <button (click)="book.rating = book.rating + 1" class="btn btn-primary">+1</button>
+    <button
+      [disabled]="!rs.rateDownAllowed(book)"
+      (click)="rateDown()"
+      class="mr-2 btn btn-secondary">-1</button>
+
+    <button
+      [disabled]="!rs.rateUpAllowed(book)"
+      (click)="rateUp()"
+      class="btn btn-primary">+1</button>
 
   </div>
 </div>
