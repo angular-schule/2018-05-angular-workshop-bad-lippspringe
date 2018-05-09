@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookRatingService {
 
   private minRating = 1;

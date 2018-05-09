@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Book } from '../shared/book';
 import { Output } from '@angular/core';
-import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'br-create-book',
