@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Book } from '../shared/book';
+import { Output } from '@angular/core';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'br-create-book',
@@ -9,6 +12,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CreateBookComponent implements OnInit {
 
   bookForm: FormGroup;
+
+  @Output()
+  createBook = new EventEmitter<Book>();
 
   constructor() { }
 
@@ -26,6 +32,20 @@ export class CreateBookComponent implements OnInit {
   isInvalid(name: string) {
     const control = this.bookForm.get(name);
     return control.invalid && control.dirty;
+  }
+
+  hasError(name: string, errorCode: string) {
+    const control = this.bookForm.get(name);
+    return control.hasError(errorCode) && control.dirty;
+  }
+
+  submitForm() {
+
+    this.createBook.emit({
+      ...this.bookForm.value,
+      rating: 1
+    });
+    this.bookForm.reset();
   }
 
 }
