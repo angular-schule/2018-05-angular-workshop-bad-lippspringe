@@ -2,6 +2,8 @@ import { BookRatingService } from './../shared/book-rating.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookComponent } from './book.component';
+import { By } from '@angular/platform-browser';
+
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -9,8 +11,8 @@ describe('BookComponent', () => {
 
   const ratingMock = {
     rateUp: () => {},
-    rateDownAllowed: () => {},
-    rateUpAllowed: () => {},
+    rateDownAllowed: () => true,
+    rateUpAllowed: () => true,
   };
 
   beforeEach(async(() => {
@@ -50,5 +52,11 @@ describe('BookComponent', () => {
     component.rateUp();
     expect(ratingMock.rateUp).toHaveBeenCalled();
     expect(ratingMock.rateUp).not.toHaveBeenCalledTimes(2);
+  });
+
+  it('should call the service when the BUTTON is clicked', () => {
+    const rateUpBtn = fixture.debugElement.query(By.css('[testRateUpButton]')).nativeElement as HTMLButtonElement;
+    rateUpBtn.click();
+    expect(ratingMock.rateUp).toHaveBeenCalled();
   });
 });
