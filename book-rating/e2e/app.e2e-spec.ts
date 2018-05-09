@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import { browser } from 'protractor';
 
 describe('book-rating App', () => {
   let page: AppPage;
@@ -9,6 +10,7 @@ describe('book-rating App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to br!');
+    expect(page.getParagraphText()).toEqual('Book Rating');
+    browser.sleep(4000);
   });
 });
