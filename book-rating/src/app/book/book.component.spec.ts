@@ -7,15 +7,15 @@ describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
-  let counter = 0;
   const ratingMock = {
-    rateUp: () => { counter++; },
-    rateDown: () => {},
+    rateUp: () => {},
     rateDownAllowed: () => {},
     rateUpAllowed: () => {},
   };
 
   beforeEach(async(() => {
+
+    spyOn(ratingMock, 'rateUp');
 
     TestBed.configureTestingModule({
       declarations: [ BookComponent ],
@@ -47,10 +47,8 @@ describe('BookComponent', () => {
   });
 
   it('should forward the rateUp call to the service', () => {
-    counter = 0;
     component.rateUp();
-    expect(counter).toBe(1);
+    expect(ratingMock.rateUp).toHaveBeenCalled();
+    expect(ratingMock.rateUp).not.toHaveBeenCalledTimes(2);
   });
-
-
 });
