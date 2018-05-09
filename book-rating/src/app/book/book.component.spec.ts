@@ -7,14 +7,16 @@ describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
+  let counter = 0;
   const ratingMock = {
-    rateUp: () => {},
+    rateUp: () => { counter++; },
     rateDown: () => {},
     rateDownAllowed: () => {},
     rateUpAllowed: () => {},
   };
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
       declarations: [ BookComponent ],
       providers: [{
@@ -43,4 +45,12 @@ describe('BookComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should forward the rateUp call to the service', () => {
+    counter = 0;
+    component.rateUp();
+    expect(counter).toBe(1);
+  });
+
+
 });
