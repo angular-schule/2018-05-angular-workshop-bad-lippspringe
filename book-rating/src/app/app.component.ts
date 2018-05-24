@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'br-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Book Rating';
+
+  constructor(public auth: AuthService) {
+  }
+
+  login() {
+    this.auth.authorize();
+  }
 }

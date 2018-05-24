@@ -4,6 +4,14 @@
     {{ title }}
   </h1>
 
+  <button  *ngIf="!auth.isAuthenticated"
+    class="btn btn-success"
+    (click)="login()">Login</button>
+
+  <button  *ngIf="auth.isAuthenticated"
+    class="btn btn-danger"
+    (click)="auth.logout()">Logout</button>
+
   <router-outlet></router-outlet>
 
 </div>
