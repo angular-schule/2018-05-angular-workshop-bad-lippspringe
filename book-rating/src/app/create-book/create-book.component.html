@@ -33,8 +33,9 @@
   <div class="form-group">
     <button type="button" class="btn btn-danger"
       [disabled]="bookForm.invalid"
-      (brConfirm)="submitForm()"
-      (brCancel)="wieSchade()"
+      brConfirm
+      (confirm)="submitForm()"
+      (cancel)="wieSchade()"
     >
       Erzeugen
     </button>

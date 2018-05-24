@@ -7,17 +7,17 @@ export class ConfirmDirective {
 
   constructor() { }
 
-  @Output() brConfirm = new EventEmitter<any>();
-  @Output() brCancel = new EventEmitter<any>();
+  @Output() confirm = new EventEmitter<any>();
+  @Output() cancel = new EventEmitter<any>();
 
   @HostListener('click')
   onClick() {
     const confirmed = window.confirm('Fortfahren?');
 
     if (confirmed) {
-      this.brConfirm.emit();
+      this.confirm.emit();
     } else {
-      this.brCancel.emit();
+      this.cancel.emit();
     }
   }
 }
