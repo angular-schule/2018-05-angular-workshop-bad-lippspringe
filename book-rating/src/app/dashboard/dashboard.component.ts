@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
+import { ResizeService } from '../shared/resize.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -11,9 +12,12 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class DashboardComponent implements OnInit {
 
+  windowHeight: number;
   books: Book[] = [];
 
-  constructor(private store: BookStoreService) {
+  constructor(private store: BookStoreService, public resize: ResizeService) {
+
+    resize.onResize$.subscribe(size => this.windowHeight = size.innerHeight);
   }
 
   ngOnInit() {
