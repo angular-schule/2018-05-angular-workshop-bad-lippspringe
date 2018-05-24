@@ -24,7 +24,10 @@
       testRateUpButton
       [disabled]="!rs.rateUpAllowed(book)"
       (click)="rateUp()"
-      class="btn btn-primary">+1</button>
+      class="btn btn-primary mr-2">+1</button>
+
+    <a [routerLink]="['/book', book.isbn]"
+      class="btn btn-primary">Details</a>
 
   </div>
 </div>
