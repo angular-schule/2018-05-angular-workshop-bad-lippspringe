@@ -38,6 +38,10 @@ export class CreateBookComponent implements OnInit {
     return control.hasError(errorCode) && control.dirty;
   }
 
+  wieSchade() {
+    alert('Wie!');
+  }
+
   submitForm() {
 
     this.createBook.emit({
