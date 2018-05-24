@@ -19,6 +19,9 @@
     "paths": {
       "shared-lib": [
         "dist/shared-lib"
+      ],
+      "navigation-lib": [
+        "dist/navigation-lib"
       ]
     }
   }

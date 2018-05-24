@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-libs": "ng build shared-lib && ng build navigation-lib",
+    "build-all": "npm run build-libs && ng build company1"
   },
   "private": true,
   "dependencies": {

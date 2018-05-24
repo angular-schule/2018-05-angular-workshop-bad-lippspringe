@@ -340,6 +340,46 @@
           }
         }
       }
+    },
+    "navigation-lib": {
+      "root": "projects/navigation-lib",
+      "sourceRoot": "projects/navigation-lib/src",
+      "projectType": "library",
+      "prefix": "navigation-lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation-lib/tsconfig.lib.json",
+            "project": "projects/navigation-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/navigation-lib/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation-lib/src/test.ts",
+            "tsConfig": "projects/navigation-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation-lib/tsconfig.lib.json",
+              "projects/navigation-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "one-app-per-customer"
