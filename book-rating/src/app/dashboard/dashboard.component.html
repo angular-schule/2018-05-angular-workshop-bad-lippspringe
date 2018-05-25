@@ -12,4 +12,15 @@
   </br-book>
 </p>
 
+<hr>
+
+<kendo-grid height="410" [data]="books">
+
+  <kendo-grid-column field="isbn" title="ISBN" width="40"></kendo-grid-column>
+  <kendo-grid-column field="title" title="Title" width="250"></kendo-grid-column>
+  <kendo-grid-column field="rating" title="Rating"></kendo-grid-column>
+  <kendo-grid-column field="description" title="Description"></kendo-grid-column>
+
+</kendo-grid>
+
 Fensterhöhe: {{ windowHeight }}px

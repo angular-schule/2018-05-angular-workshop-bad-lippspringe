@@ -19,6 +19,9 @@ import { AuthService } from './shared/auth.service';
 
 import { ApiModule, BASE_PATH } from '@angular-schule/book-monkey-api';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,9 @@ import { ApiModule, BASE_PATH } from '@angular-schule/book-monkey-api';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ApiModule
+    ApiModule,
+    BrowserAnimationsModule,
+    GridModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

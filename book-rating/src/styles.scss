@@ -5,11 +5,5 @@ $primary: #a80505;
 
 @import '~@angular-schule/workshop-styles/index';
 
-/*
-ALTE SCHULE:
-
-.btn-primary {
-  background-color: red !important;
-}
-*/
-
+// npm install --save @progress/kendo-theme-default
+@import "~@progress/kendo-theme-default/scss/all";
