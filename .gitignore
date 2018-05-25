@@ -5,3 +5,5 @@
 /typescript-playground/node_modules/
 /typescript-playground/main.js.map
 /.DS_Store
+/book-rating-swagger-codegen/.DS_Store
+/book-rating-swagger-codegen/code/

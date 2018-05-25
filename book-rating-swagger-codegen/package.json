@@ -1,0 +1,15 @@
+{
+  "name": "book-rating-swagger-codegen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "java -jar swagger-codegen-cli.jar generate -i https://api.angular.schule/swagger.json -l typescript-angular -o ./code -c options.json",
+    "compile": "cd code && npm i && npm run build",
+    "push": "cd code && npm publish dist --access=public",
+
+    "start": "npm run generate && npm run compile && npm run push"
+  },
+  "author": "",
+  "license": "ISC"
+}
