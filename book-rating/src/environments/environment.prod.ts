@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  API_BASE_PATH: 'https://api.angular.schule'
 };
+

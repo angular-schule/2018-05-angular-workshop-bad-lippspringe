@@ -1,6 +1,1 @@
-export interface Book {
-  isbn: string;
-  title: string;
-  description: string;
-  rating: number;
-}
+export { Book } from '@angular-schule/book-monkey-api';

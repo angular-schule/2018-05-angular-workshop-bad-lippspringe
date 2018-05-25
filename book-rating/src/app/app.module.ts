@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { TokenInterceptor } from './shared/token.interceptor';
 import { BookRatingService } from './shared/book-rating.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +17,7 @@ import { ConfirmDirective } from './confirm.directive';
 import { RepeatDirective } from './repeat.directive';
 import { AuthService } from './shared/auth.service';
 
+import { ApiModule, BASE_PATH } from '@angular-schule/book-monkey-api';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,16 @@ import { AuthService } from './shared/auth.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ApiModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
+  }, {
+    provide: BASE_PATH,
+    useValue: environment.API_BASE_PATH
   }],
   bootstrap: [AppComponent]
 })
